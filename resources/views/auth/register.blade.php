@@ -12,19 +12,28 @@
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="Full Name" />
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Full Name" value="{{ old('name') }}"/>
                         <div class="input-group-text"><span class="bi bi-person"></span></div>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email" />
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}"/>
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password" />
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}"/>
                         <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation" />
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation" value="{{ old('password_confirmation') }}"/>
                         <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                     </div>
 
