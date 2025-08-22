@@ -7,7 +7,7 @@
       <div class="login-logo">
         <a href="{{ route('login') }}"><b>Admin</b>LTE</a>
       </div>
-      <!-- /.login-logo -->
+
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Reset password</p>
@@ -27,13 +27,12 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <!--begin::Row-->
+
             <div class="row">
                 <div class="d-grid gap-2">
                   <button type="submit" class="btn btn-primary">Send me the link</button>
                 </div>
             </div>
-            <!--end::Row-->
           </form>
 
 
