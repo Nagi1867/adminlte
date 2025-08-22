@@ -7,6 +7,9 @@
             {{ $value }}
         </div>
     @endsession
+
+    @include('users.parts.interests')
+    <br>
     @include('users.parts.basic-datails')
     <br>
     @include('users.parts.profile')
