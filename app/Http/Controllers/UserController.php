@@ -29,4 +29,22 @@ class UserController extends Controller
             ->route('users.index')
             ->with('status', 'Usuário adicionado com sucesso!');
     }
+
+    public function edit(User $user) {
+
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(User $user, Request $request) {
+        $input = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'exclude_if:password,null|min:6'
+        ]);
+        $user->fill($input);
+        $user->save();
+
+        return back()
+            ->with('status', 'Usuário editado com sucesso');
+    }
 }
